@@ -12,14 +12,14 @@
 										<li>
 											<a
 												{if $menuItem.txt}
-													href="/ohadresume/showTxt?sectionName={$sectionName}&title={$menuItem.title}&name={$menuItem.txt}"
+													href="/clones/showTxt?sectionName={$sectionName}&title={$menuItem.title}&name={$menuItem.txt}"
 												{elseif $menuItem.run}
-													href="/ohadresume/run?class={$menuItem.run}"
+													href="/clones/run?class={$menuItem.run}"
 												{elseif $menuItem.source}
 													target="{$menuItem.name}"
-													href="/ohadresume/viewSource?file={$menuItem.source}"
+													href="/clones/viewSource?file={$menuItem.source}"
 												{elseif $menuItem.func}
-													href="/ohadresume/{$menuItem.func}"
+													href="/clones/{$menuItem.func}"
 												{elseif $menuItem.url}
 													href="{$menuItem.url}"
 												{/if}
