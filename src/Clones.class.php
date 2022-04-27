@@ -18,7 +18,7 @@ class Clones extends Mcontroller {
 		$this->loginId = ClonesLogin::loginId();
 		$this->loginName = ClonesLogin::loginName();
 		$this->loginType = ClonesLogin::loginType();
-		$this->cloneUtils = new cloneUtils;
+		$this->cloneUtils = new CloneUtils;
 		Mutils::setenv("debugLevel", 1);
 	}
 	/*------------------------------------------------------------*/
