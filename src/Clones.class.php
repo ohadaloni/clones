@@ -6,7 +6,7 @@ class Clones extends Mcontroller {
 	protected $loginId;
 	protected $loginType;
 	/*------------------------------*/
-	protected $coinUtils;
+	protected $cloneUtils;
 	/*------------------------------*/
 	private $startTime;
 	/*------------------------------------------------------------*/
@@ -18,7 +18,7 @@ class Clones extends Mcontroller {
 		$this->loginId = ClonesLogin::loginId();
 		$this->loginName = ClonesLogin::loginName();
 		$this->loginType = ClonesLogin::loginType();
-		$this->coinUtils = new coinUtils;
+		$this->cloneUtils = new cloneUtils;
 		Mutils::setenv("debugLevel", 1);
 	}
 	/*------------------------------------------------------------*/
@@ -27,7 +27,7 @@ class Clones extends Mcontroller {
 		ini_set('max_execution_time', 10);
 		ini_set("memory_limit", "5M");
 
-		$this->coinUtils->prior($this->controller, $this->action, $this->loginName, $this->loginType, $this->loginId);
+		$this->cloneUtils->prior($this->controller, $this->action, $this->loginName, $this->loginType, $this->loginId);
 		$this->startTime = microtime(true);
 		$this->Mview->assign(array(
 			'controller' => $this->controller,
@@ -164,16 +164,8 @@ class Clones extends Mcontroller {
 		return(true);
 	}
 	/*------------------------------------------------------------*/
-	private function isAjax() {
-		$http_x_requested_with = @$_SERVER['HTTP_X_REQUESTED_WITH'];
-		$isAjax =
-			$http_x_requested_with &&
-			strtolower($http_x_requested_with) == "xmlhttprequest" ;
-		return($isAjax);
-	}
-	/*------------------------------*/
 	private function showMargins() {
-		if ( $this->isAjax() ) {
+		if ( Mutils::isAjax() ) {
 			return(false);
 		}
 		if( in_array($this->controller, array(

@@ -1,6 +1,6 @@
 <?php
 /*------------------------------------------------------------*/
-class CoinUtils extends Mcontroller {
+class CloneUtils extends Mcontroller {
 	/*------------------------------------------------------------*/
 	private $loginName;
 	private $loginType;
