@@ -27,7 +27,8 @@ if ( !  $clonesLogin->enterSession() ) {
 	$Mview->flushOutput();
 	exit;
 }
-$clones = new Clones($startTime);
+$clones = new Clones;
+$clones->setStartTime($startTime);
 $clones->control();
 $Mview->flushOutput();
 /*------------------------------------------------------------*/
