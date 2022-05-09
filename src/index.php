@@ -5,6 +5,8 @@ require_once(M_DIR."/mfiles.php");
 require_once("clonesFiles.php");
 require_once("Clones.class.php");
 /*------------------------------------------------------------*/
+$startTime = microtime(true);
+/*------------------------------------------------------------*/
 global $Mview;
 global $Mmodel;
 $Mview = new Mview;
@@ -25,7 +27,7 @@ if ( !  $clonesLogin->enterSession() ) {
 	$Mview->flushOutput();
 	exit;
 }
-$clones = new Clones;
+$clones = new Clones($startTime);
 $clones->control();
 $Mview->flushOutput();
 /*------------------------------------------------------------*/
