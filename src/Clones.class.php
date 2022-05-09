@@ -10,8 +10,9 @@ class Clones extends Mcontroller {
 	/*------------------------------*/
 	private $startTime;
 	/*------------------------------------------------------------*/
-	public function __construct() {
+	public function __construct($startTime) {
 		parent::__construct();
+		$this->startTime = $startTime;
 
 		// permit is called before before()
 		// and if fails, before is not called.
@@ -27,7 +28,6 @@ class Clones extends Mcontroller {
 		ini_set("memory_limit", "5M");
 
 		$this->cloneUtils->prior($this->controller, $this->action, $this->loginName, $this->loginType, $this->loginId);
-		$this->startTime = microtime(true);
 		$this->Mview->assign(array(
 			'controller' => $this->controller,
 			'action' => $this->action,
