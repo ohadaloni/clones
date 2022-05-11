@@ -21,6 +21,7 @@ class Clones extends Mcontroller {
 	/*------------------------------------------------------------*/
 	/*------------------------------------------------------------*/
 	protected function before() {
+		parent::before();
 		ini_set('max_execution_time', 10);
 		ini_set("memory_limit", "5M");
 
@@ -47,6 +48,7 @@ class Clones extends Mcontroller {
 	}
 	/*------------------------------*/
 	protected function after() {
+		parent::after();
 		if ( ! $this->showMargins())
 			return;
 		$this->Mview->showTpl("footer.tpl");
