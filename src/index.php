@@ -21,7 +21,7 @@ if ( isset($_REQUEST['logOut']) ) {
 	$Mview->flushOutput();
 	exit;
 }
-if ( !  $clonesLogin->enterSession() ) {
+if ( ! $clonesLogin->enterSession() ) {
 	$clones = new Clones;
 	$clones->showLoginScreen();
 	$Mview->flushOutput();
