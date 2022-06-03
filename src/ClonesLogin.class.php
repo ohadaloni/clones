@@ -32,13 +32,10 @@ class ClonesLogin extends Mcontroller {
 		$fields = "id, loginName,loginType, passwd";
 		$str = $this->Mmodel->str($loginName);
 		$sql = "select $fields from users where loginName = '$str'";
-		$loginRecs = $this->Mmodel->getRows($sql);
-		foreach ( $loginRecs as $loginRec ) {
-			$dbPasswd = $loginRec['passwd'];
-			if ( $passwd == $dbPasswd || sha1($passwd) == $dbPasswd) {
-				return($loginRec);
-			}
-		}
+		$loginRec = $this->Mmodel->getRow($sql);
+		$dbPasswd = $loginRec['passwd'];
+		if ( sha1($passwd) == $dbPasswd)
+			return($loginRec);
 		return(null);
 	}
 	/*------------------------------------------------------------*/
